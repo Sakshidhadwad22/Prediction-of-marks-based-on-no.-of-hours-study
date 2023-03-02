@@ -1,0 +1,36 @@
+Simple linear regression is a type of linear regression in which a single input variable (also known as an independent variable or predictor variable) is used to predict the output variable (also known as the dependent variable). It assumes that there is a linear relationship between the input variable and the output variable.
+
+The equation for simple linear regression is:
+
+y = mx + c
+
+where y is the predicted output variable, x is the input variable, m is the slope of the regression line, and c is the intercept. The goal of simple linear regression is to find the values of m and b that minimize the sum of the squared differences between the predicted values and the actual values of the output variable.
+
+In order to perform simple linear regression, you need a dataset that includes both the input variable and the output variable. You can then split the dataset into training and testing sets, fit the regression model to the training data, and evaluate its performance on the testing data.
+
+Here is an example code snippet using scikit-learn to perform simple linear regression:
+
+python
+Copy code
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+
+# assume x and y are arrays of input and output variables, respectively
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=0)
+
+# create a LinearRegression object and fit it to the training data
+regressor = LinearRegression()
+regressor.fit(x_train, y_train)
+
+# predict the output variable for the test data
+y_pred = regressor.predict(x_test)
+
+# evaluate the performance of the model using a metric such as mean squared error
+from sklearn.metrics import mean_squared_error
+mse = mean_squared_error(y_test, y_pred)
+print('Mean squared error:', mse)
+
+Note that this is a simple example, and in practice, you may need to perform additional data preprocessing, feature engineering, and model tuning to achieve better results.
+
+
+
